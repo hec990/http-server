@@ -1,10 +1,10 @@
 ### 启动server
 
 ```git
-node server.js 8888
+node-dev server.js 8888
 ```
 
-### 发请求
-
-- 浏览器输入 `http://localhost:8888/` 具体可以看代码中间判断条件
+### 添加路由
+1. 编辑 server.js文件，添加if else
+2. 重新运行文件 node-dev server.js 8888
 

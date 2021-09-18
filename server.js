@@ -4,7 +4,7 @@ var url = require('url')
 var port = process.argv[2]
 
 if (!port) {
-    console.log('ÇëÖ¸¶¨¶Ë¿ÚºÅºÃ²»À²£¿\nnode server.js 8888 ÕâÑù²»»áÂð£¿')
+    console.log('ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ë¿ÚºÅºÃ²ï¿½ï¿½ï¿½ï¿½ï¿½\nnode server.js 8888 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½')
     process.exit(1)
 }
 
@@ -17,44 +17,40 @@ var server = http.createServer(function(request, response) {
     var query = parsedUrl.query
     var method = request.method
 
-    /******** ´ÓÕâÀï¿ªÊ¼¿´£¬ÉÏÃæ²»Òª¿´ ************/
+    /******** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿ªÊ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ²»Òªï¿½ï¿½ ************/
 
-    console.log('ÓÐ¸öÉµ×Ó·¢ÇëÇó¹ýÀ´À²£¡Â·¾¶£¨´ø²éÑ¯²ÎÊý£©Îª£º' + pathWithQuery)
+    console.log('ï¿½Ð¸ï¿½Éµï¿½Ó·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½' + pathWithQuery)
 
-    // ·ÃÎÊ¸ùÄ¿Â¼£¬ÏìÓ¦µÄÄÚÈÝ
+    // ï¿½ï¿½ï¿½Ê¸ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     if (path === '/') {
         response.statusCode = 200
         response.setHeader('Content-Type', 'text/html;charset=utf-8')
-        response.write(`
-        <!DOCTYPE html>
-        <head>
-          <link rel="stylesheet" href="/x">
-        </head>
-        <body>
-        <h1>ÎÒµÄµÚÒ»¸öHTTPÇëÇó</h1>
-        <script src="/y"></script>
-        </body>
-        `)
+        response.write("åŽå°æœåŠ¡å™¨ç™»å½•æˆåŠŸï¼")
         response.end()
-    } else if (path === '/x') { // ·ÃÎÊ¸ùÄ¿Â¼´ø²éÑ¯²ÎÊý  ==> CSS code
-        response.statusCode = 200 // ×´Ì¬Âë
+    } else if (path === '/x') { // ï¿½ï¿½ï¿½Ê¸ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½  ==> CSS code
+        response.statusCode = 200 // ×´Ì¬ï¿½ï¿½
         response.setHeader('Content-Type', 'text/css;charset=utf-8')
-        response.write(`body{color: green;}`)
+        response.write(`
+                        body { color: green; }
+                        `)
         response.end()
-    } else if (path === '/y') { // ·ÃÎÊ¸ùÄ¿Â¼´ø²éÑ¯²ÎÊý  ==> JS code
+    } else if (path === '/y') { // ï¿½ï¿½ï¿½Ê¸ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½  ==> JS code
         response.statusCode = 200
         response.setHeader('Content-Type', 'text/javascript;charset=utf-8')
-        response.write(`console.log('Hello JS')`)
+        response.write(`
+                        console.log('Hello JS')
+                        `)
         response.end()
     } else {
         response.statusCode = 404
         response.setHeader('Content-Type', 'text/html;charset=utf-8')
-        response.write(`ÄãÊäÈëµÄÂ·¾¶²»´æÔÚ¶ÔÓ¦µÄÄÚÈÝ`)
+        response.write(`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                        Ú¶ï¿½ Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ `)
         response.end()
     }
 
-    /******** ´úÂë½áÊø£¬ÏÂÃæ²»Òª¿´ ************/
+    /******** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ²»Òªï¿½ï¿½ ************/
 })
 
 server.listen(port)
-console.log('¼àÌý ' + port + ' ³É¹¦\nÇëÓÃÔÚ¿ÕÖÐ×ªÌå720¶ÈÈ»ºóÓÃµç·¹ìÒ´ò¿ª http://localhost:' + port)
+console.log('ï¿½ï¿½ï¿½ï¿½ ' + port + ' ï¿½É¹ï¿½\nï¿½ï¿½ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½×ªï¿½ï¿½720ï¿½ï¿½È»ï¿½ï¿½ï¿½Ãµç·¹ï¿½Ò´ï¿½ http://localhost:' + port)
